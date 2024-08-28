@@ -4,38 +4,18 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        debug {
-            storeFile file('D:\\languageTranslator\\languagetranslate.jks')
-            storePassword '123456'
-            keyAlias 'key0'
-            keyPassword '123456'
-        }
-        release {
-            storeFile file('D:\\languageTranslator\\languagetranslate.jks')
-            storePassword '123456'
-            keyAlias 'key0'
-            keyPassword '123456'
-        }
-    }
+
     namespace 'com.alltranslator.voicetotext.languagetranslator'
     compileSdk 33
-    splits {
-        abi {
-            enable true
-            reset()
-            include 'x86_64','arm64-v8a'
-            universalApk false
-        }
-    }
+
     defaultConfig {
-        applicationId "com.allvoicetranslator.language.translator"
+        applicationId "com.alltranslator.voicetotext.languagetranslator"
         minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.release
+
     }
 
     buildTypes {
@@ -47,15 +27,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        applicationVariants.all {
-            variant ->
-                variant.outputs.each {
-                    output ->
-                        def name = "All_Language_Translator_V_${variant.versionName}.apk"
-                        output.outputFileName = name
-                }
-        }
-
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
